@@ -1,0 +1,20 @@
+# модуль тематического моделирования
+topic_modeling:
+  enabled: true
+  n_topics: 8
+
+# модуль вовлеченности
+engagement:
+  viral_multiplier: 1.5
+
+# модуль трендов и аномалий
+trends:
+  z_score_threshold: 2.5
+
+# хранилище данных
+database:
+  host: "localhost"
+  port: 5432
+  name: "social_analytics"
+  user: "postgres"
+  password: "yourpassword"
