@@ -14,7 +14,7 @@ trends:
 # хранилище данных
 database:
   host: "localhost"
-  port: 5432
-  name: "social_analytics"
+  port: 5433
+  name: "social_media_analysis"
   user: "postgres"
-  password: "yourpassword"
+  password: "3069"

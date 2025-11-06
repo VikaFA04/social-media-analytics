@@ -25,14 +25,15 @@ def lemmatize_text(text: str) -> str:
 
 def preprocess_data(df: pd.DataFrame, lemmatize: bool = True) -> pd.DataFrame:
     df = df.copy()
-    df['text_clean'] = df['text'].apply(clean_text)
+    
+    # Используем 'text_content' — имя после переименования в data_loader.py
+    df['text_clean'] = df['text_content'].apply(clean_text)
 
     if lemmatize:
         df['text_lemmatized'] = df['text_clean'].apply(lemmatize_text)
-
-    df['num_hashtags'] = df['text'].str.count('#')
+    df['num_hashtags'] = df['hashtags'].str.count('#') if 'hashtags' in df.columns else 0
     df['text_length'] = df['text_clean'].str.len()
-    df['post_date'] = pd.to_datetime(df['date'])
+    df['post_date'] = pd.to_datetime(df['timestamp'])
     df['day_of_week'] = df['post_date'].dt.day_name()
     df['hour'] = df['post_date'].dt.hour
 

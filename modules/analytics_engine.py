@@ -89,7 +89,7 @@ def detect_trends(df: pd.DataFrame, z_score_threshold: float = 2.5) -> pd.DataFr
     return df
 
 def run_full_analysis(df: pd.DataFrame) -> pd.DataFrame:
-    with open('../config.yaml', 'r', encoding='utf-8') as f:
+    with open('config.yaml', 'r', encoding='utf-8') as f:
         config = yaml.safe_load(f)
     
     # Последовательный анализ
