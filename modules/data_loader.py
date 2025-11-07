@@ -47,10 +47,10 @@ def data_loader():
     )
     
     print("Загрузка данных из CSV...")
-    df = load_data('Social Media Engagement Dataset.csv')  # ← Теперь load_data определена выше
+    df = load_data('data/social_media_data.csv')
     
     print("Предобработка данных...")
-    df_processed = preprocess_data(df)  # ← preprocess_data импортирована из .data_preprocessor
+    df_processed = preprocess_data(df)
     
     print("Сохранение в базу данных...")
     # Сохраняем с заменой всей таблицы (if_exists='replace')

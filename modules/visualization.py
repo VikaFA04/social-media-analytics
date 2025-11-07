@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import base64
 from io import BytesIO
 from jinja2 import Template
-from weasyprint import HTML
+#from weasyprint import HTML
 import os
 
 def create_sentiment_chart(df: pd.DataFrame):
@@ -131,10 +131,10 @@ def generate_html_report(df: pd.DataFrame, output_path: str = "report.html"):
     print(f'HTML-отчёт сохранён: {output_path}')
     return output_path
 
-def export_to_pdf(html_path: str, pdf_path: str = "report.pdf"):
+'''def export_to_pdf(html_path: str, pdf_path: str = "report.pdf"):
 
     HTML(html_path).write_pdf(pdf_path)
-    print(f'PDF-отчёт сохранён: {pdf_path}')
+    print(f'PDF-отчёт сохранён: {pdf_path}')'''
 
 def export_to_excel(df: pd.DataFrame, excel_path: str = "report.xlsx"):
 
@@ -150,7 +150,7 @@ def generate_reports(df: pd.DataFrame, output_dir: str = "."):
     excel_path = os.path.join(output_dir, "data.xlsx")
     
     generate_html_report(df, html_path)
-    export_to_pdf(html_path, pdf_path)
+    #export_to_pdf(html_path, pdf_path)
     export_to_excel(df, excel_path)
     
     print('Все отчёты успешно сгенерированы')

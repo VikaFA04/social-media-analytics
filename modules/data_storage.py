@@ -1,3 +1,4 @@
+# modules/data_storage.py
 import pandas as pd
 import psycopg2
 from psycopg2.extras import execute_values
@@ -77,12 +78,8 @@ def save_to_database(df: pd.DataFrame, table_name: str = 'social_media_posts'):
         'text_lemmatized', 'num_hashtags', 'text_length', 'hour', 'is_viral'
     ]
     
-    # Оставляем только те колонки, которые есть в DataFrame
     available_columns = [col for col in all_columns if col in df.columns]
-    
-    # Подготавливаем данные
     data = df[available_columns].where(pd.notnull(df), None).values.tolist()
-
     # INSERT запрос с обработкой конфликтов по post_id
     insert_query = f"""
     INSERT INTO {table_name} ({', '.join(available_columns)})
@@ -99,7 +96,6 @@ def save_to_database(df: pd.DataFrame, table_name: str = 'social_media_posts'):
     print(f'Сохранено {len(df)} записей в таблицу {table_name}')
 
 def load_from_database(table_name: str = 'social_media_posts') -> pd.DataFrame:
-    """Загружает данные из PostgreSQL"""
     config = get_db_config()
     conn = psycopg2.connect(
         host=config['host'],
