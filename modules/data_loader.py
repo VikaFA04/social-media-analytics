@@ -2,7 +2,7 @@
 import pandas as pd
 from sqlalchemy import create_engine
 from .data_storage import get_db_config
-from .data_preprocessor import preprocess_data  # ← Импортируем preprocess_data из соседнего модуля
+from .data_preprocessor import preprocess_data
 
 def load_data(file_path: str) -> pd.DataFrame:
     df = pd.read_csv(file_path)
