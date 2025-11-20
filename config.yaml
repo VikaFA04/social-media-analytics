@@ -17,4 +17,4 @@ database:
   port: 5433
   name: "social_media_analysis"
   user: "postgres"
-  password: ""
+  password: "3069"
